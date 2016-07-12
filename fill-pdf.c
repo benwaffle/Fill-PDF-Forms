@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     GFile *file = g_file_new_for_path(argv[1]);
     PopplerDocument *doc = poppler_document_new_from_gfile(file, NULL, NULL, &err);
     if (err) {
-        fprintf(stderr, "Error: %s", err->message);
+        fprintf(stderr, "Error: %s\n", err->message);
         return 1;
     }
 
@@ -53,9 +53,9 @@ int main(int argc, char *argv[]) {
     GFile *filled = g_file_new_for_path("./filled.pdf");
     poppler_document_save(doc, g_file_get_uri(filled), &err);
     if (err) {
-        fprintf(stderr, "Error: %s", err->message);
+        fprintf(stderr, "Error: %s\n", err->message);
         return 1;
     }
-    
+
     return 0;
 }
